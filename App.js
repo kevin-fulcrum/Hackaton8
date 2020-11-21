@@ -5,8 +5,8 @@ import Profile from './src/screens/Profile'
 const App=()=>{
 return(
     <>
-    <Profile/>
-    {/*<Index />*/}
+    {/*<Profile/>*/}
+    <Index />
     </>
 )
 };

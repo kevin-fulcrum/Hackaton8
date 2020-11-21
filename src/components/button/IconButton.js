@@ -13,8 +13,8 @@ const IconButton = ({url}) => {
 
 const styles = StyleSheet.create({
     image: {
-        width: 35,
-        height: 30,
+        width: 20,
+        height: 20,
     },
 })
 
