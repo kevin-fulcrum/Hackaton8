@@ -6,22 +6,32 @@ const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: width / 2.5,
+    width: width / 3,
     height: height / 10,
     backgroundColor: 'white',
-    margin: 10,
+    margin: 2,
     borderRadius: 10,
+    marginLeft: 40,
+    marginRight: -30,
   },
   textView: {
     position: 'absolute',
-    bottom: 25,
-    margin: 10,
-    left: 7,
+    bottom: 5,
+    margin: 4,
+    left: 8,
   },
   image: {
-    width: width / 2.5,
-    height: height / 12,
+    width: width / 3,
+    height: height / 10,
     borderRadius: 10,
+  },
+  logo: {
+    width: width / 15,
+    height: height / 30,
+    position: 'absolute',
+    bottom: 40,
+    margin: 4,
+    left: 8,
   },
   itemTitle: {
     color: 'white',
@@ -54,6 +64,12 @@ const RedesItem = ({item}) => {
         style={styles.image}
         source={{
           uri: item.image,
+        }}
+      />
+      <Image
+        style={styles.logo}
+        source={{
+          uri: item.logo,
         }}
       />
       <View style={styles.textView}>

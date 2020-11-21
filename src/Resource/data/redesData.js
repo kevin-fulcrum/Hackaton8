@@ -3,44 +3,26 @@ export const redesData = [
       title: 'Dribble',
       description:
         '@alisamarconi',
+      logo: 'https://images.vexels.com/media/users/3/137251/isolated/preview/4dd720f6ca6047fcf50bb14439e2f7af-logotipo-del-icono-de-dribbble-by-vexels.png',
       image:
         'https://i.ytimg.com/vi/VHI1Kr9EPrs/maxresdefault.jpg',
       id: 1,
     },
     {
-      title: 'Dress',
-      description: 'Woman in a summer dress',
+      title: 'Twitter',
+      description: '@alisamarconi',
+      logo: 'https://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png',
       image:
-        'https://images.unsplash.com/photo-1562373353-7db88744f982?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=896&q=80',
+        'https://i.pinimg.com/originals/af/c0/52/afc05224ec8e8cf191679bfeac9ea8c8.jpg',
       id: 2,
     },
     {
-      title: 'Shoes',
-      description: 'Woman in a dress',
+      title: 'youtube',
+      description: '@alisamarconi',
+      logo: 'https://assets.stickpng.com/images/580b57fcd9996e24bc43c545.png',
       image:
-        'https://images.unsplash.com/photo-1600075110701-6ea93b9b5f70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        'https://st.depositphotos.com/1011767/1748/i/600/depositphotos_17486139-stock-photo-red-background.jpg',
       id: 3,
-    },
-    {
-      title: 'T-Shirt',
-      description: ' beautiful woman in a dress.',
-      image:
-        'https://images.unsplash.com/photo-1586471176822-f1beeaa03fe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-      id: 4,
-    },
-    {
-      title: 'Hoddies',
-      description: ' beautiful woman in a dress.',
-      image:
-        'https://images.unsplash.com/photo-1586471176822-f1beeaa03fe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-      id: 5,
-    },
-    {
-      title: 'Underwear',
-      description: ' beautiful woman in a dress.',
-      image:
-        'https://images.unsplash.com/photo-1586471176822-f1beeaa03fe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-      id: 6,
     },
   ];
   
