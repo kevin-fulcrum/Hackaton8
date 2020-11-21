@@ -1,12 +1,14 @@
 import React from 'react'
-import Index from './src/screens/Index'
-import Profile from './src/screens/Profile'
+//import Index from './src/screens/Index'
+//import Profile from './src/screens/Profile'
+import SocialNet from './src/screens/SocialNet'
 
 const App=()=>{
 return(
     <>
-    <Profile/>
+    {/*<Profile/>*/}
     {/*<Index />*/}
+    <SocialNet></SocialNet>
     </>
 )
 };

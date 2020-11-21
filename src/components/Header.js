@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, StyleSheet, Dimensions, View } from 'react-native'
-import IconButton from './button/IconButton'
+import IconButton from './Button/IconButton'
 
 const Header = () => {
     return(
