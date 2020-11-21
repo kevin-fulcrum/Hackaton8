@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Header from '../components/Header'
 import SliderBody from '../components/slider/SliderBody'
-import { carouselData } from '../resource/functions/data/datos'
+import { carouselData } from '../Resource/functions/data/datos'
 
 const Index  = () => {
     return(
