@@ -29,14 +29,27 @@ const styles = StyleSheet.create({
     },
     container2:{
         flex: 1/3,
-        justifyContent: 'center',
-        backgroundColor: 'skyblue',
+        justifyContent: 'center'
     },
     container3:{
         flex: 1/3,
         justifyContent: 'center',
-        backgroundColor: 'gray',
         flexDirection: 'row'
+    },
+    picktime:{
+        flexDirection: 'column',
+        marginVertical: 80,
+        borderLeftWidth: 4,
+        borderRightWidth: 4, 
+        marginRight: 60, 
+        borderLeftColor: '#060606'
+    },
+    textTime:{
+        marginRight: 20,
+        marginTop: 100,
+        fontWeight: 'bold',
+        marginLeft: -40,
+        fontSize: 20
     }
 })
 
@@ -76,16 +89,16 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                     items={months}
                     defaultValue={state.country}
                     containerStyle={{height: 40, width: width/2, marginHorizontal: 15, marginBottom: 10}}
-                    style={{backgroundColor: 'skyblue'}}
+                    style={{backgroundColor: '#FCF7F7'}}
                     itemStyle={{
                         justifyContent: 'flex-start'
                     }}
-                    dropDownStyle={{backgroundColor: 'skyblue'}}
+                    dropDownStyle={{backgroundColor: '#FCF7F7'}}
                     onChangeItem={item => setState({
                         country: item.value
                     })}
                 />
-                <FlatList style = {{flexDirection: 'column', marginLeft:15}}
+                <FlatList style = {{flexDirection: 'row', marginLeft:15}}
                 data={days}
                 keyExtractor={(item, index) => 'key' + index}
                 horizontal
@@ -94,6 +107,7 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                 scrollEventThrottle={16}
                 decelerationRate="fast"
                 showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
                 renderItem={(item) => {
                     return <Day item={item.item} />          
                   }}
@@ -104,7 +118,7 @@ const [state, setState] = useState({country: moment().format('MMMM')})
             </View>  
             <View style = {styles.container3}>
                 <Text style = {styles.subtitle}>PICK TIME</Text>
-                <FlatList style = {{flexDirection: 'column', marginLeft:15}}
+                <FlatList style = {styles.picktime}
                 data={hours}
                 keyExtractor={(item, index) => 'key' + index}
                 vertical
@@ -120,7 +134,9 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                     {nativeEvent: {contentOffset: {x: scrollX}}},
                   ], {useNativeDriver: false})}
                 />
-                <FlatList style = {{flexDirection: 'column', marginLeft:15}}
+                
+                <Text style={styles.textTime}>Hr</Text>
+                <FlatList style = {styles.picktime}
                 data={minutes}
                 keyExtractor={(item, index) => 'key' + index}
                 vertical
@@ -136,6 +152,7 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                     {nativeEvent: {contentOffset: {x: scrollX}}},
                   ], {useNativeDriver: false})}
                 />
+                <Text style={styles.textTime}>Min</Text>
             </View>            
         </View>
     )

@@ -5,7 +5,6 @@ const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     height: height / 5.5,
     backgroundColor: 'white',
     borderRadius: 10,
@@ -25,15 +24,14 @@ const styles = StyleSheet.create({
   },
   itemPrice: {
     color: '#212121',
-    fontSize: 13,
-    fontWeight: '300',
+    fontSize: 40,
   },
 });
 
 const Day = ({item}) => {
     
   return (
-    <View style={styles.container, {width: width/10}}>      
+    <View style={styles.container, {width: width/5}}>      
       <View style={styles.textView}>
           <TouchableOpacity onPress={()=>{  }}>
               <Text style={styles.itemPrice}>{item}</Text>
