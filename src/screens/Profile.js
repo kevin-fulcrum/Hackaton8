@@ -1,6 +1,7 @@
-import React from 'react'
-import {View, Text, StyleSheet, Dimensions, Image} from 'react-native'
+import React, {useState} from 'react'
+import {View, Text, StyleSheet, Dimensions, Image, TouchableOpacity} from 'react-native'
 import ButtonProfile from '../components/Button/ButtonProfile'
+import ImagePicker from 'react-native-image-picker';
 
 const {width, height} = Dimensions.get('window');
 
@@ -22,16 +23,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#eec3c4',
       },
       container4: {
-        flex: 0.30,
+        flex: 0.40,
         backgroundColor: '#f3e9e8',
         borderTopWidth: 1,
         borderTopColor: '#eec3c4',
       },
       imagen: {
+        marginTop: 10,
         width: 100,
         height: 100,
         borderRadius: 50,
-        marginTop: 40, 
+        borderWidth: 4,
+        borderColor: '#dba8a8',
       },
       texto: {
         marginTop: 10,
@@ -47,28 +50,69 @@ const styles = StyleSheet.create({
         padding: 1,
         marginTop: 10,
         marginRight: 100,
-        marginLeft: 20,
+        marginLeft: 10,
       },
       foter:{
         flexDirection: 'row',
       },
       textoicono:{
         marginRight: 90,
-        marginLeft: 30,
+        marginLeft: 15,
       }
 });
 
+
+
 const Profile = () =>{
-    return(
+
+  const [state, setState]=useState({resourcePath:{}});
+    
+  const select = () => {
+    let options = {
+      title: 'Select Image',
+      customButtons: [
+        { 
+          name: 'customOptionKey', 
+          title: 'Choose file from Custom Option' 
+        },
+      ],
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+  
+
+  ImagePicker.showImagePicker(options, res => {
+    console.log('Response = ', res);
+
+    if (res.didCancel) {
+      console.log('User cancelled image picker');
+    } else if (res.error) {
+      console.log('ImagePicker Error: ', res.error);
+    } else if (res.customButton) {
+      console.log('User tapped custom button: ', res.customButton);
+      alert(res.customButton);
+    } else {
+      let source = res;
+      setState({
+        resourcePath: source,
+      });
+    }
+  });
+  }
+  return(
         <>
+       
         <View style={[styles.containerfull, styles.container1]}>
-            <Image
+              <TouchableOpacity onPress={e=>{select()}}>
+                <Image
               source={{
-                uri:
-                  'https://images.unsplash.com/photo-1604772659841-a1612db7000f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=420&q=80',
+                uri: 'data:image/jpeg;base64,' + state.resourcePath.data,
               }}
               style={styles.imagen}> 
-            </Image>
+              </Image>
+              </TouchableOpacity>
             <Text style={styles.texto}>Alisa</Text>
             <Text style={styles.texto}>22 want | 35 done</Text>
         </View>
