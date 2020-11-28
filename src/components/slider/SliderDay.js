@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image, Dimensions} from 'react-native';
+import {View, StyleSheet, Text, Image, Dimensions, TouchableOpacity} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -31,10 +31,13 @@ const styles = StyleSheet.create({
 });
 
 const Day = ({item}) => {
+    
   return (
-    <View style={styles.container, {width: width/3}}>      
+    <View style={styles.container, {width: width/10}}>      
       <View style={styles.textView}>
-        <Text style={styles.itemPrice}>{item}</Text>
+          <TouchableOpacity onPress={()=>{  }}>
+              <Text style={styles.itemPrice}>{item}</Text>
+          </TouchableOpacity>        
       </View>
     </View>
   );

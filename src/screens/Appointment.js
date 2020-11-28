@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     container3:{
         flex: 1/3,
         justifyContent: 'center',
-        backgroundColor: 'gray'
+        backgroundColor: 'gray',
+        flexDirection: 'row'
     }
 })
 
@@ -55,6 +56,8 @@ const months = [
 ]
 
 const days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
+const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,'00']
+const minutes = ['00', 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]
 
 const Appointment = () =>{
 
@@ -100,7 +103,39 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                 />
             </View>  
             <View style = {styles.container3}>
-                <Text>Appointment</Text>
+                <Text style = {styles.subtitle}>PICK TIME</Text>
+                <FlatList style = {{flexDirection: 'column', marginLeft:15}}
+                data={hours}
+                keyExtractor={(item, index) => 'key' + index}
+                vertical
+                scrollEnabled
+                snapToAlignment="center"
+                scrollEventThrottle={16}
+                decelerationRate="fast"
+                showsVerticalScrollIndicator={false}
+                renderItem={(item) => {
+                    return <Day item={item.item} />          
+                  }}
+                  onScroll={Animated.event([
+                    {nativeEvent: {contentOffset: {x: scrollX}}},
+                  ], {useNativeDriver: false})}
+                />
+                <FlatList style = {{flexDirection: 'column', marginLeft:15}}
+                data={minutes}
+                keyExtractor={(item, index) => 'key' + index}
+                vertical
+                scrollEnabled
+                snapToAlignment="center"
+                scrollEventThrottle={16}
+                decelerationRate="fast"
+                showsVerticalScrollIndicator={false}
+                renderItem={(item) => {
+                    return <Day item={item.item} />          
+                  }}
+                  onScroll={Animated.event([
+                    {nativeEvent: {contentOffset: {x: scrollX}}},
+                  ], {useNativeDriver: false})}
+                />
             </View>            
         </View>
     )
