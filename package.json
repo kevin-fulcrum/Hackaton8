@@ -10,8 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "moment": "^2.29.1",
     "react": "16.13.1",
-    "react-native": "0.63.3"
+    "react-native": "0.63.3",
+    "react-native-dropdown-picker": "^3.7.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.7",
