@@ -1,6 +1,7 @@
 import moment from 'moment';
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { View,Text,  StyleSheet, FlatList, Animated, Dimensions } from 'react-native'
+import Day from '../components/slider/SliderDay'
 
 import DropDownPicker from 'react-native-dropdown-picker'
 
@@ -53,11 +54,14 @@ const months = [
     {label: 'DEC', value: 'December', days: 31},
 ]
 
+const days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
 
 const Appointment = () =>{
 
 const scrollX = new Animated.Value(0);
+
 const [state, setState] = useState({country: moment().format('MMMM')})
+
     return(
         <View style = {styles.container}>
             <View style = {styles.container1}>
@@ -79,7 +83,7 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                     })}
                 />
                 <FlatList style = {{flexDirection: 'column', marginLeft:15}}
-                data={months}
+                data={days}
                 keyExtractor={(item, index) => 'key' + index}
                 horizontal
                 scrollEnabled
@@ -88,11 +92,11 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                 decelerationRate="fast"
                 showsHorizontalScrollIndicator={false}
                 renderItem={(item) => {
-                    return <Text> {item.item.days} </Text>          
+                    return <Day item={item.item} />          
                   }}
                   onScroll={Animated.event([
                     {nativeEvent: {contentOffset: {x: scrollX}}},
-                  ])}
+                  ], {useNativeDriver: false})}
                 />
             </View>  
             <View style = {styles.container3}>
