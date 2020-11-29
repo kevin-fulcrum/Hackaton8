@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     container2:{
+        zIndex: 10,
         flex: 1/3,
         justifyContent: 'center'
     },
@@ -77,8 +78,12 @@ const Appointment = () =>{
 const scrollX = new Animated.Value(0);
 
 const [state, setState] = useState({country: moment().format('MMMM')})
+const [dia, setDia] = useState('')
+const [hora, setHora] = useState('')
+const [minuto, setMinuto] = useState('')
 
     return(
+        <>
         <View style = {styles.container}>
             <View style = {styles.container1}>
                 <Text style = {styles.tittle}>Appointment</Text>
@@ -109,7 +114,7 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
                 renderItem={(item) => {
-                    return <Day item={item.item} />          
+                    return <Day item={item.item} setDia={setDia}/>   
                   }}
                   onScroll={Animated.event([
                     {nativeEvent: {contentOffset: {x: scrollX}}},
@@ -128,7 +133,7 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                 decelerationRate="fast"
                 showsVerticalScrollIndicator={false}
                 renderItem={(item) => {
-                    return <Day item={item.item} />          
+                    return <Day item={item.item} setDia={setHora}/>          
                   }}
                   onScroll={Animated.event([
                     {nativeEvent: {contentOffset: {x: scrollX}}},
@@ -146,7 +151,7 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                 decelerationRate="fast"
                 showsVerticalScrollIndicator={false}
                 renderItem={(item) => {
-                    return <Day item={item.item} />          
+                    return <Day item={item.item} setDia={setMinuto}/>          
                   }}
                   onScroll={Animated.event([
                     {nativeEvent: {contentOffset: {x: scrollX}}},
@@ -155,6 +160,10 @@ const [state, setState] = useState({country: moment().format('MMMM')})
                 <Text style={styles.textTime}>Min</Text>
             </View>            
         </View>
+        <View>
+                <Text style={{fontSize:30}}>fecha: {dia} {state.country}     hora: {hora} horas {minuto} minutos</Text>      
+        </View>
+        </>
     )
 }
 

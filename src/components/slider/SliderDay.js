@@ -28,13 +28,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const Day = ({item}) => {
+const Day = ({item, setDia}) => {
     
   return (
     <View style={styles.container, {width: width/5}}>      
       <View style={styles.textView}>
-          <TouchableOpacity onPress={()=>{  }}>
-              <Text style={styles.itemPrice}>{item}</Text>
+          <TouchableOpacity onPress={()=>{setDia(item)}}>
+          <Text style={styles.itemPrice}>{item}</Text>
           </TouchableOpacity>        
       </View>
     </View>
